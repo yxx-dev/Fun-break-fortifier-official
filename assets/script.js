@@ -28,7 +28,6 @@ let timeDisplay = document.querySelector('#timer-fortifier');
 //current state of mood
 let currentState;
 
-
 //GET superhero API data
 fetch(superheroAPILink)
     .then(function(response){
@@ -44,7 +43,23 @@ fetch(superheroAPILink)
 //main actions
 document.addEventListener('load',resetTimer);
 stateButtons.addEventListener('click',buttonStateAction);
+//show giphy only when booster button is clicked
 boosterButton.addEventListener('click',printGiphy);
+
+//load from local storage
+$('#load-last').on('click',loadFromLast);
+
+function loadFromLast () {
+    countDown();
+    superheroSelected = localStorage.getItem('last-superhero');
+    console.log(superheroSelected,superheroAll);
+    printSuperhero();
+    currentState = superheroSelectedDetails.biography.alignment;
+    console.log(currentState, superheroSelectedDetails);
+    
+    //show booster button only when state of mood is entered
+    boosterButton.style.display = 'block'
+}
 
 //Mood state button function
 function buttonStateAction (event) {
@@ -52,10 +67,11 @@ function buttonStateAction (event) {
     currentState = event.target.dataset.state;
     console.log(currentState);
     countDown();
-    printSuperhero(currentState);
+    selectSuperhero(currentState);
+    printSuperhero();
     //show booster button only when state of mood is entered
     boosterButton.style.display = 'block'
-    //show giphy only when booster button is clicked
+    
 }
 
 
@@ -77,7 +93,7 @@ function countDown() {
     },1000);
 }
 //print superhero
-function printSuperhero (alignment) {
+function selectSuperhero (alignment) {
     let superheroAlignmentGood = [];
     let superheroAlignmentNeutral = [];
     let superheroAlignmentBad = [];
@@ -111,15 +127,24 @@ function printSuperhero (alignment) {
     console.log(superheroSelected);
     //superheroAll = superheroAll[Math.floor(Math.random() * superheroAll.length)];
     
+    //save to local storage for re-use
+    localStorage.setItem("last-superhero", superheroSelected);
+};
+
+function printSuperhero () {
     //get details of the selected superhero
+    console.log(superheroAll.length);
+    console.log(superheroAll[0].id);
+    console.log(superheroSelected);
     for (i=0; i<superheroAll.length; i++) {
-        if (superheroAll[i].id === superheroSelected) {
+        if (superheroAll[i].id == superheroSelected) {
             superheroSelectedDetails = superheroAll[i];
             console.log(superheroSelectedDetails);
-            console.log(superheroSelectedDetails.biography.alignment);
             break;
         }
     }
+    console.log(superheroSelectedDetails);
+    console.log(superheroSelectedDetails.biography.alignment);
 
     //print superhero detail
     superheroTitle.textContent = superheroSelectedDetails.name;
@@ -128,7 +153,7 @@ function printSuperhero (alignment) {
 
     //TO DO print out article properly
     superheroArticle.textContent = superheroSelectedDetails;
-};
+}
 
 function printGiphy() {
     giphyAll=[];
