@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class='no-js' lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fun Break Fortifier</title>
 
-    <link rel="stylesheet" href="./assets/reset.css" />
+    <link rel="stylesheet" href="./assets/reset.css"/>
     <!-- Foundation Compressed CSS-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.5/dist/css/foundation.min.css" crossorigin="anonymous">  
     <link rel="stylesheet" href="./assets/style.css"/>
+
 </head>
 <body>
   <main class="grid-container">
@@ -18,21 +19,24 @@
         <h1 id="title-fortifier">Fun Break Fortifier</h1>
         <subtitle class="grid-x grid-padding-x">
           <section class="cell medium-7">
-          <h4>Enter your state of mood:</h4>
-          
+            <h4>Enter your state of mood:</h4>
+            <nav class="button-mood-state expanded button-group">
+              <a data-state="good" class="button">Feeling good</a>
+              <a data-state="neutral" class="button">Just OK</a>
+              <a data-state="bad" class="button">Feeling villainous</a>
+            </nav>          
           </section>
           <section class="cell medium-5">
-            Placeholder medium 5 cell
+            <section id="timer-fortifier"></section>
           </section>
         </subtitle>
       </section>
       <main class="cell medium-auto medium-cell-block-container">
         <main class="grid-x grid-padding-x">
           <article class="cell medium-7 medium-cell-block-y">
-            <h2>Independent scrolling sidebar</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lacus odio, accumsan id ullamcorper eget, varius nec erat. Nulla facilisi. Donec dui felis, euismod nec finibus vitae, dapibus quis arcu. Maecenas tempor et ipsum quis venenatis. Ut posuere sed augue sit amet efficitur. Sed imperdiet, justo id tempus rhoncus, est est viverra turpis, non vulputate magna lectus et nisl. Pellentesque ultrices porttitor vehicula. Ut aliquet efficitur ligula, a consectetur felis. Proin tristique ut augue nec luctus. Curabitur a sapien pretium, auctor elit a, efficitur erat. Donec tincidunt dui vel velit bibendum euismod. Cras vitae nibh dui. Aliquam erat volutpat. Etiam sit amet arcu a erat efficitur facilisis. Ut viverra dapibus turpis, et ornare justo. Integer in dui cursus, dignissim tortor a, hendrerit risus.</p>
-    
-            <p>Suspendisse pulvinar, massa iaculis feugiat lobortis, dolor sapien vestibulum nulla, vel cursus tellus leo in lorem. Aliquam eu placerat urna. Suspendisse sed viverra orci, ut mattis neque. Fusce non ultrices nisi. In sagittis varius mollis. Quisque dolor quam, consectetur eu lacinia ac, ullamcorper vel arcu. Nullam mattis imperdiet nulla sed ornare. Praesent tristique, est id eleifend vestibulum, neque nibh condimentum ex, nec lobortis purus justo a libero. Phasellus id ex ac nunc hendrerit hendrerit. Nullam urna ipsum, rutrum at fringilla vel, venenatis non purus. Maecenas egestas ex vitae venenatis molestie. Ut et odio egestas, accumsan neque et, viverra nisl. Sed faucibus nec nulla sed imperdiet. Fusce quis sem ac urna semper tempor a id elit. Nulla fringilla vitae sapien a vehicula.</p>
+            <h2 id="superhero-title"></h2>
+            <img id="superhero-image">
+            <p id="superhero-article">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lacus odio, accumsan id ullamcorper eget, varius nec erat. Nulla facilisi. Donec dui felis, euismod nec finibus vitae, dapibus quis arcu. Maecenas tempor et ipsum quis venenatis. Ut posuere sed augue sit amet efficitur. Sed imperdiet, justo id tempus rhoncus, est est viverra turpis, non vulputate magna lectus et nisl. Pellentesque ultrices porttitor vehicula. Ut aliquet efficitur ligula, a consectetur felis. Proin tristique ut augue nec luctus. Curabitur a sapien pretium, auctor elit a, efficitur erat. Donec tincidunt dui vel velit bibendum euismod. Cras vitae nibh dui. Aliquam erat volutpat. Etiam sit amet arcu a erat efficitur facilisis. Ut viverra dapibus turpis, et ornare justo. Integer in dui cursus, dignissim tortor a, hendrerit risus.</p>
     
           </article>
           <article class="cell medium-5 medium-cell-block-y">
@@ -68,10 +72,22 @@
         <button class="col-1 searchBtn"></button>
       </div>
 
+  <p><button class="button" data-open="modal1">Click me for a modal</button></p>
+  <!--Placeholder for modal-->
+  <div class="reveal" id="modal1" data-reveal>
+    <h1>Awesome. I Have It.</h1>
+    <p class="lead">Your couch. It is mine.</p>
+    <p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <!--jQuery-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
   <!-- Foundation Compressed JavaScript-->
   <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.5/dist/js/foundation.min.js" crossorigin="anonymous"></script>
   <!-- Moment JS-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js" integrity="sha512-CryKbMe7sjSCDPl18jtJI5DR5jtkUWxPXWaLCst6QjH8wxDexfRJic2WRmRXmstr2Y8SxDDWuBO6CQC6IE4KTA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
   <script src="./assets/script.js"></script>
 </body>
 
