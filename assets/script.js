@@ -4,6 +4,10 @@ let superheroTitle = document.getElementById('superhero-title');
 let superheroImg = document.getElementById('superhero-image');
 let superheroArticle = document.getElementById('superhero-article');
 let giphyContainer = document.getElementById('giphy-container');
+let boosterButton = document.getElementById('booster-button');
+let giphyImg = document.querySelector('#giphy00');
+//good, neutral, bad buttons
+let stateButtons = document.querySelector('.button-mood-state')
 
 //superhero API getting all superheros
 let superheroAPILink = 'https://akabab.github.io/superhero-api/api/all.json';
@@ -21,9 +25,9 @@ let giphyAll;
 let timeLeft;
 let currentTimeLeft;
 let timeDisplay = document.querySelector('#timer-fortifier');
+//current state of mood
+let currentState;
 
-//good, neutral, bad buttons
-let stateButtons = document.querySelector('.button-mood-state')
 
 //GET superhero API data
 fetch(superheroAPILink)
@@ -40,16 +44,21 @@ fetch(superheroAPILink)
 //main actions
 document.addEventListener('load',resetTimer);
 stateButtons.addEventListener('click',buttonStateAction);
-
+boosterButton.addEventListener('click',printGiphy);
 
 //Mood state button function
 function buttonStateAction (event) {
     //console.log(event.target);
-    console.log(event.target.dataset.state);
+    currentState = event.target.dataset.state;
+    console.log(currentState);
     countDown();
-    printSuperhero(event.target.dataset.state);
-    printGiphy(event.target.dataset.state)
+    printSuperhero(currentState);
+    //show booster button only when state of mood is entered
+    boosterButton.style.display = 'block'
+    //show giphy only when booster button is clicked
 }
+
+
 
 //reset timer
 function resetTimer(){
@@ -73,6 +82,10 @@ function printSuperhero (alignment) {
     let superheroAlignmentNeutral = [];
     let superheroAlignmentBad = [];
     console.log(alignment);
+
+    //reset giphy
+    giphyImg.setAttribute('src', '');
+    giphyImg.setAttribute('alt', '');
 
     //get all good, neutral, bad superheros
     for (i=0; i<superheroAll.length; i++) {
@@ -117,11 +130,11 @@ function printSuperhero (alignment) {
     superheroArticle.textContent = superheroSelectedDetails;
 };
 
-function printGiphy(state) {
+function printGiphy() {
     giphyAll=[];
     giphySelected='';
     //$(giphyContainer).children().remove();
-    giphyAPILink = `https://api.giphy.com/v1/gifs/search?api_key=A2TgkGiLoAQZ9pidarrbGGfT3MCAv5xy&q=${state}&limit=10&offset=0&rating=${giphyRating}&lang=en`;
+    giphyAPILink = `https://api.giphy.com/v1/gifs/search?api_key=A2TgkGiLoAQZ9pidarrbGGfT3MCAv5xy&q=${currentState}&limit=10&offset=0&rating=${giphyRating}&lang=en`;
     //GET giphy/search API
     fetch(giphyAPILink)
         .then(function(response){
@@ -133,11 +146,8 @@ function printGiphy(state) {
             console.log(giphyAll.length);
             giphySelected = giphyAll[Math.floor(Math.random() * giphyAll.length)];
 
-            document.querySelector('#giphy00').setAttribute('src', giphySelected.images.downsized_large.url);
-            document.querySelector('#giphy00').setAttribute('alt', giphySelected.title);
-            
-                //$(giphyContainer).html(`<img src='${giphyAll[i].url}' alt='${giphyAll[i].title}'/>`)
-
+            giphyImg.setAttribute('src', giphySelected.images.downsized_large.url);
+            giphyImg.setAttribute('alt', giphySelected.title);
         })
     
 }

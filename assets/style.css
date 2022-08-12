@@ -9,3 +9,7 @@ body * {
 #timer-fortifier {
     text-align: right;
 }
+
+#booster-button {
+    display: none;
+}
