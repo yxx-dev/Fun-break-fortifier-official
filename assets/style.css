@@ -1,0 +1,15 @@
+body * {
+    border: 1px solid lightgrey;
+}
+
+#title-fortifier {
+    text-align: center;
+}
+
+#timer-fortifier {
+    text-align: right;
+}
+
+#booster-button {
+    display: none;
+}

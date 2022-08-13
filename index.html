@@ -1,24 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class='no-js' lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Fun Break Fortifier</title>
+
+    <link rel="stylesheet" href="./assets/reset.css"/>
+    <!-- Foundation Compressed CSS-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.5/dist/css/foundation.min.css" crossorigin="anonymous">  
+    <link rel="stylesheet" href="./assets/style.css"/>
+
 </head>
 <body>
-    <h1>Fun Fact Fortifier</h1>
-    <div class="container">
-        <div class="row music-block" id="music">
-          <div class="col-1 hour pt-2">Music</div>
-          <textarea class="mood"></textarea>
-          <button class="col-1 searchBtn"></button>
-        </div>
-    <div class="container">
-      <div class="row read-block" id="read">
-        <div class="mood">Read</div>
-        <textarea class="mood"></textarea>
-        <button class="col-1 searchBtn"></button>
-      </div>
+  <main class="grid-container">
+    <main class="grid-y medium-grid-frame">
+      <section class="cell shrink header medium-cell-block-container">
+        <h1 id="title-fortifier">Fun Break Fortifier</h1>
+        <subtitle class="grid-x grid-padding-x">
+          <section class="cell medium-7">
+            <h4>Enter your state of mood:</h4>
+            <nav class="button-mood-state expanded button-group">
+              <a data-state="good" class="button">Feeling good</a>
+              <a data-state="neutral" class="button">Just OK</a>
+              <a data-state="bad" class="button">Feeling villainous</a>
+            </nav>          
+          </section>
+          <section class="cell medium-5">
+            <h4 id="timer-fortifier">Stress-free timer</h4>
+            <a id="booster-button" class="button warning expanded" href="#">Ready for the booster?</a>
+          </section>
+        </subtitle>
+      </section>
+      <main class="cell medium-auto medium-cell-block-container">
+        <main class="grid-x grid-padding-x">
+          <article class="cell medium-7 medium-cell-block-y">
+            <h2 id="superhero-title"></h2>
+            <img id="superhero-image"/>
+            <p id="superhero-article"></p>
+    
+          </article>
+          <article class="giphy-container cell medium-5 medium-cell-block-y">
+            <h2></h2>
+            <img id="giphy00"/>
+          </article>
+        </main>
+      </main>
+      <footer class="cell shrink footer">
+        <h3>Add footer here</h3>
+      </footer>
+    </main>
+  </main>
+  
+
+  <!--Placeholder for modal-->
+  <div class="reveal" id="modal1" data-reveal>
+    <h1>Awesome. I Have It.</h1>
+    <p class="lead">Your couch. It is mine.</p>
+    <p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <button class="test-btn1 button">test button 1</button>
+
+  <!--jQuery-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+  <!-- Foundation Compressed JavaScript-->
+  <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.5/dist/js/foundation.min.js" crossorigin="anonymous"></script>
+  <!-- Moment JS-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+  <script src="./assets/script.js"></script>
 </body>
+
 </html>
