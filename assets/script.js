@@ -1,4 +1,6 @@
-//let superheroAPILink = "https://superheroapi.com/api/10227036229149593/character-id/biography";
+//initiate Foundation
+$(document).foundation();
+
 //get document elements
 let superheroTitle = document.getElementById('superhero-title');
 let superheroImg = document.getElementById('superhero-image');
@@ -41,13 +43,35 @@ fetch(superheroAPILink)
     })
 
 //main actions
-document.addEventListener('load',resetTimer);
+document.addEventListener('load', loadPage());
+
+
 stateButtons.addEventListener('click',buttonStateAction);
 //show giphy only when booster button is clicked
 boosterButton.addEventListener('click',printGiphy);
 
-//load from local storage
-$('#load-last').on('click',loadFromLast);
+function loadPage () {
+    resetTimer();
+    //load modal to check localStorage
+    console.log(localStorage.getItem('last-superhero'));
+    if (localStorage.getItem('last-superhero')) {
+        console.log("not null");
+        //load from local storage
+
+
+        //TO DO: DEBUG THIS
+        //loadFromLast();
+
+        //use a modal??
+        //$('#modal1').foundation('open');
+
+        //localStorage.clear('last-superhero');
+    }
+    
+};
+
+//temporary test function
+$('.test-btn1').on('click',loadFromLast);
 
 function loadFromLast () {
     countDown();
@@ -80,6 +104,7 @@ function buttonStateAction (event) {
 function resetTimer(){
     timeLeft = 12;
     clearInterval(currentTimeLeft);
+    console.log("timer reset");
 }
 //countdown function
 function countDown() {
@@ -88,6 +113,8 @@ function countDown() {
         timeLeft -= 1;
         timeDisplay.textContent=`Stress-free timer: ${timeLeft}s`;
         if (timeLeft === 0) {
+            //open modal window
+            $('#modal1').foundation('open');
             resetTimer();
         }
     },1000);
