@@ -1,5 +1,7 @@
+font-family: fantasy;
+
 body * {
-    border: 1px solid lightgrey;
+    border: 1px solid  rgb(5, 52, 134);
 }
 
 #title-fortifier {
@@ -12,4 +14,14 @@ body * {
 
 #booster-button {
     display: none;
+}
+.cell medium-7 {
+    border:none
+}
+
+.grid-x { background-color: rgb(5, 52, 134);}
+
+.reveal {background-color: purple;}
+.grid-x {
+    color:aliceblue;
 }
