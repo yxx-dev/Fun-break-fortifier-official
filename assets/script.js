@@ -9,7 +9,7 @@ let giphyContainer = document.getElementById('giphy-container');
 let boosterButton = document.getElementById('booster-button');
 let giphyImg = document.querySelector('#giphy00');
 //good, neutral, bad buttons
-let stateButtons = document.querySelector('.button-mood-state')
+let stateButtons = document.querySelector('.button-mood-state');
 
 //superhero API getting all superheros
 let superheroAPILink = 'https://akabab.github.io/superhero-api/api/all.json';
@@ -51,38 +51,33 @@ stateButtons.addEventListener('click',buttonStateAction);
 boosterButton.addEventListener('click',printGiphy);
 
 function loadPage () {
-    resetTimer();
-    //load modal to check localStorage
-    console.log(localStorage.getItem('last-superhero'));
-    if (localStorage.getItem('last-superhero')) {
-        console.log("not null");
-        //load from local storage
-
-
-        //TO DO: DEBUG THIS
-        //loadFromLast();
-
-        //use a modal??
-        //$('#modal1').foundation('open');
-
-        //localStorage.clear('last-superhero');
-    }
-    
+    resetTimer ();
+    loadFromLast ();
 };
 
 //temporary test function
-$('.test-btn1').on('click',loadFromLast);
+//$('.test-btn1').on('click',loadFromLast);
 
 function loadFromLast () {
-    countDown();
-    superheroSelected = localStorage.getItem('last-superhero');
-    console.log(superheroSelected,superheroAll);
-    printSuperhero();
-    currentState = superheroSelectedDetails.biography.alignment;
-    console.log(currentState, superheroSelectedDetails);
     
-    //show booster button only when state of mood is entered
-    boosterButton.style.display = 'block'
+    //load from local storage
+    superheroSelectedDetails = JSON.parse(localStorage.getItem('last-superhero'));
+    console.log(superheroSelectedDetails);
+    if (superheroSelectedDetails) {
+        console.log("not null");
+        //superheroSelected = superheroSelectedDetails.id;
+        printSuperhero();
+
+        //clear local storage
+        localStorage.clear('last-superhero');
+
+        currentState = superheroSelectedDetails.biography.alignment;
+        console.log(currentState, superheroSelectedDetails);
+    
+        //show booster button only when state of mood is entered
+        boosterButton.style.display = 'block';
+        countDown();
+    }
 }
 
 //Mood state button function
@@ -94,7 +89,7 @@ function buttonStateAction (event) {
     selectSuperhero(currentState);
     printSuperhero();
     //show booster button only when state of mood is entered
-    boosterButton.style.display = 'block'
+    boosterButton.style.display = 'block';
     
 }
 
@@ -153,12 +148,6 @@ function selectSuperhero (alignment) {
     }
     console.log(superheroSelected);
     //superheroAll = superheroAll[Math.floor(Math.random() * superheroAll.length)];
-    
-    //save to local storage for re-use
-    localStorage.setItem("last-superhero", superheroSelected);
-};
-
-function printSuperhero () {
     //get details of the selected superhero
     console.log(superheroAll.length);
     console.log(superheroAll[0].id);
@@ -170,8 +159,13 @@ function printSuperhero () {
             break;
         }
     }
-    console.log(superheroSelectedDetails);
+    console.log(superheroSelectedDetails)   
+    //save to local storage for re-use
+    localStorage.setItem("last-superhero", JSON.stringify(superheroSelectedDetails))    
     console.log(superheroSelectedDetails.biography.alignment);
+};
+
+function printSuperhero () {
 
     //print superhero detail
     superheroTitle.textContent = superheroSelectedDetails.name;
