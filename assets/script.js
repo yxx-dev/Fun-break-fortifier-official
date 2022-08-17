@@ -82,6 +82,7 @@ function loadFromLast () {
 
 //Mood state button function
 function buttonStateAction (event) {
+    localStorage.clear('last-superhero');
     //console.log(event.target);
     currentState = event.target.dataset.state;
     console.log(currentState);
@@ -169,13 +170,41 @@ function printSuperhero () {
 
     //print superhero detail
     superheroTitle.textContent = superheroSelectedDetails.name;
-    superheroImg.setAttribute('src', superheroSelectedDetails.images.lg);
+    superheroImg.setAttribute('src', superheroSelectedDetails.images.md);
     superheroImg.setAttribute('alt', `and image of ${superheroSelectedDetails.name}`);
 
     //TO DO print out article properly
-    superheroArticle.textContent = superheroSelectedDetails;
-}
+    //superheroArticle.textContent = superheroSelectedDetails;
+    //console.log(JSON.stringify(superheroSelectedDetails.powerstats));
 
+        //console.log("power: " + superheroSelectedDetails.powerstats.power + "/100");
+        //console.log("combat: " + superheroSelectedDetails.powerstats.combat + "/100");
+        //console.log("durability: " + superheroSelectedDetails.powerstats.durability + "/100");
+        //console.log("intelligence: " + superheroSelectedDetails.powerstats.intelligence + "/100");
+        //console.log("speed: " + superheroSelectedDetails.powerstats.speed + "/100");
+        //console.log("strength: " + superheroSelectedDetails.powerstats.strength + "/100");
+        //for (var i = 0; i < 6; i++) {
+        $(superheroArticle).children().remove();
+            let liElm1 = document.createElement('li');
+            liElm1.textContent = "Power: " + superheroSelectedDetails.powerstats.power + "/100";
+            superheroArticle.appendChild(liElm1);
+            let liElm2 = document.createElement('li');
+            liElm2.textContent = "Combat: " + superheroSelectedDetails.powerstats.combat + "/100";
+            superheroArticle.appendChild(liElm2);
+            let liElm3 = document.createElement('li');
+            liElm3.textContent = "Durability: " + superheroSelectedDetails.powerstats.durability + "/100";
+            superheroArticle.appendChild(liElm3);
+            let liElm4 = document.createElement('li');
+            liElm4.textContent = "Intelligence: " + superheroSelectedDetails.powerstats.intelligence + "/100";
+            superheroArticle.appendChild(liElm4);
+            let liElm5 = document.createElement('li');
+            liElm5.textContent = "Speed: " + superheroSelectedDetails.powerstats.speed + "/100";
+            superheroArticle.appendChild(liElm5);
+            let liElm6 = document.createElement('li');
+            liElm6.textContent = "Strength: " + superheroSelectedDetails.powerstats.strength + "/100";
+            superheroArticle.appendChild(liElm6);
+            }
+        //}
 function printGiphy() {
     giphyAll=[];
     giphySelected='';
