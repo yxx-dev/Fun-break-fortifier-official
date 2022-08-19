@@ -1,8 +1,8 @@
-
-
 body * {
-    font-family: fantasy;
-    border: 1px solid  rgb(5, 52, 134);
+    border: none  rgb(5, 52, 134);
+    font-family: "Baloo 2", sans-serif;
+    
+
 }
 
 #title-fortifier {
@@ -22,7 +22,7 @@ body * {
 
 .grid-x { background-color: rgb(5, 52, 134);}
 
-.reveal {background-color: purple;}
+.reveal {background-color: rgb(41, 227, 93);}
 .grid-x {
     color:aliceblue;
 }
