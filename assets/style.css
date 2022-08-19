@@ -29,10 +29,7 @@ body * {
 
 .close-button-modal{
     Border: 2px, solid black;
-    border-radius: 7px;
-    margin-left: 5px;
-    margin-bottom: 45px;
-    padding: 7px;
+    
     
   }
   
