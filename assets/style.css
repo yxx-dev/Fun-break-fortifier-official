@@ -1,6 +1,7 @@
-font-family: fantasy;
+
 
 body * {
+    font-family: fantasy;
     border: 1px solid  rgb(5, 52, 134);
 }
 
