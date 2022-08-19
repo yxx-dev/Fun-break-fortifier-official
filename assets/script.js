@@ -186,22 +186,22 @@ function printSuperhero () {
         //for (var i = 0; i < 6; i++) {
         $(superheroArticle).children().remove();
             let liElm1 = document.createElement('li');
-            liElm1.textContent = "Power: " + superheroSelectedDetails.powerstats.power + "/100";
+            liElm1.textContent = "Power: "  + superheroSelectedDetails.powerstats.power + "/100";
             superheroArticle.appendChild(liElm1);
             let liElm2 = document.createElement('li');
-            liElm2.textContent = "Combat: " + superheroSelectedDetails.powerstats.combat + "/100";
+            liElm2.textContent = "Combat: "  + superheroSelectedDetails.powerstats.combat + "/100";
             superheroArticle.appendChild(liElm2);
             let liElm3 = document.createElement('li');
-            liElm3.textContent = "Durability: " + superheroSelectedDetails.powerstats.durability + "/100";
+            liElm3.textContent = "Durability: "  + superheroSelectedDetails.powerstats.durability + "/100";
             superheroArticle.appendChild(liElm3);
             let liElm4 = document.createElement('li');
-            liElm4.textContent = "Intelligence: " + superheroSelectedDetails.powerstats.intelligence + "/100";
+            liElm4.textContent = "Intelligence: "  + superheroSelectedDetails.powerstats.intelligence + "/100";
             superheroArticle.appendChild(liElm4);
             let liElm5 = document.createElement('li');
-            liElm5.textContent = "Speed: " + superheroSelectedDetails.powerstats.speed + "/100";
+            liElm5.textContent = "Speed: "  + superheroSelectedDetails.powerstats.speed + "/100";
             superheroArticle.appendChild(liElm5);
             let liElm6 = document.createElement('li');
-            liElm6.textContent = "Strength: " + superheroSelectedDetails.powerstats.strength + "/100";
+            liElm6.textContent = "Strength: "  + superheroSelectedDetails.powerstats.strength + "/100";
             superheroArticle.appendChild(liElm6);
             }
         //}
