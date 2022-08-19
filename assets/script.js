@@ -98,7 +98,7 @@ function buttonStateAction (event) {
 
 //reset timer
 function resetTimer(){
-    timeLeft = 1;
+    timeLeft = 12;
     clearInterval(currentTimeLeft);
     console.log("timer reset");
 }
