@@ -4,7 +4,7 @@
 A web application that provides timed mental escape to decompress from daily stresses of life or be energized for conquering the world. Deployment: https://yxx-dev.github.io/Fun-break-fortifier-official/
 
 ## Table of Contents (Optional)
-NA
+NA testing readme
 
 ## Installation
 Common webbrowser that supports html, CSS and JavaScript
