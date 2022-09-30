@@ -22,7 +22,7 @@ Common webbrowser that supports html, CSS and JavaScript
 ## Usage
 For demonstration purpose only. <br />
 Screenshot: <br />
-![Break_Photo](/assets/images/Break_Photo.jpeg)
+![Break_Photo](/assets/images/Break_Photo.png)
 
 
 ## Features
